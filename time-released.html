@@ -1,0 +1,41 @@
+<style>
+.first-show, .second-show {
+	border: 1px red solid;
+	/*visibility: hidden;*/
+	padding: 25px;
+	display: none;
+	margin: 1px;
+}
+
+</style>
+<body>
+
+	<article class="first-show">This is a message one</article>
+	<article class="second-show">This is a message two</article>
+	<article class="first-show">This is another message one</article>
+
+</body>
+
+<script>
+const today = new Date();
+
+const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate()+' '+today.getHours()+':'+today.getMinutes();
+
+const wave1 = document.querySelectorAll("article.first-show");
+const wave2 = document.querySelectorAll("article.second-show")
+
+for (var i=0; i<wave1.length; i++) {
+	//console.log('articles: ' + wave1[i]);
+
+	if(date>='2020-4-6 00:00'){
+		wave1[i].style.display = "block";
+	 } 
+}
+ for (var j=0; j<wave2.length; j++) {
+ 	if(date>='2020-4-9 10:36'){
+		wave2[j].style.display = "block";
+	}
+}
+
+alert(date);
+</script>
