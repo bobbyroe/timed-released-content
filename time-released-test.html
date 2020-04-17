@@ -1,75 +1,39 @@
-<style>
-.first-show, .second-show {
-	border: 1px red solid;
-	/*visibility: hidden;*/
-	padding: 25px;
-	margin: 2.5px;
-	display: none;
-}
+<html lang="en">
+  <head>
+    <title>
+      Josh's JavaScript
+    </title>
+  </head>
+  <style>
+    .first-show,
+    .second-show {
+      border: 1px red solid;
+      display: none;
+      padding: 25px;
+      margin: 2.5px;
+      display: none;
+    }
+  </style>
+  <body>
+    <article class="first-show" name="message 1">This is a message one</article>
+    <article class="second-show" name="message 2">This is a message two</article>
+    <article class="first-show" name="message 3">This is another message one</article>
+  </body>
 
+  <script>
+    const today = new Date();
 
-</style>
-<body>
+    const wave1 = document.querySelectorAll('article.first-show');
+    const wave2 = document.querySelectorAll('article.second-show');
 
-	<article class="first-show" name="message 1">This is a message one</article>
-	<article class="second-show" name="message 2">This is a message two</article>
-	<article class="first-show" name="message 3">This is another message one</article>
+    const testTime = new Date('2020-04-12T15:32');
+    const testTimeTwo = new Date('2020-04-10T15:44');
 
-</body>
-
-<script>
-const today = new Date();
-
-function toUTC(date) {
-	return Date.UTC(
-	date.getFullYear(),
-	date.getMonth(),
-	date.getDate(),
-	date.getHours(),
-	date.getMinutes(),
-	date.getSeconds()
-	);
-}
-toUTC(today);
-
-const wave1 = document.querySelectorAll("article.first-show");
-const wave2 = document.querySelectorAll("article.second-show");
-
-const waveArray = [wave1,wave2];
-
-const testTime = new Date("2020-04-12T15:32");
-const testTimeTwo = new Date("2020-04-10T15:44");
-
-/*waveArray.forEach((wave) => {
-	console.log(wave)
-	if(wave === wave1 && today>=testTime){
-		//doThis();
-		alert(wave1);
-	} 
-	if(wave === wave2 && today>=testTimeTwo){
-		alert("block2")
-	} 
-})*/
-
-for (let i = 0; i < waveArray.length; i++) {
-	if(waveArray[i] === wave1 && today>=testTime){
-		doThis();
-	} else if(waveArray[i] === wave2 && today>=testTimeTwo) {
-		doThat();
-	}
-}
-
-function doThis() {
-	const wave_show = document.querySelectorAll("article.first-show");
-	for (let j=0; j<wave_show.length; j++){
-		wave_show[j].style.display = "block";
-	}
-	
-	//show the item, change it, change it to show, regardless of what it is
-}
-function doThat() {
-	alert("this is working too");
-}
-
-//alert();
-</script>
+    if (today >= testTime) {
+      wave1.forEach( n => n.style.display = "block");
+    } 
+    if (today >= testTimeTwo) {
+      wave2.forEach( n => n.style.display = "block");
+    }
+  </script>
+</html>
